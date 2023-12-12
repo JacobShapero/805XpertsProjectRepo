@@ -22,6 +22,8 @@ https://hub.docker.com/r/splunk/splunk/
 
 ## Creating Splunk Reports ##
 
+Download your dataset (currently from slack).
+
 Run Splunk Enterprise locally.
 
 Navigate to "Add Data" and upload your selected dataset.
