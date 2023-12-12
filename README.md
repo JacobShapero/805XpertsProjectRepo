@@ -20,6 +20,11 @@ Download through docker.
 splunk/splunk - Docker Image | Docker Hub.
 https://hub.docker.com/r/splunk/splunk/
 
+– OR –
+
+If you have an M1 (ARM-64) Mac the options above will not work for you.
+Follow this tutorial to download a cloud-based splunk instance: https://www.youtube.com/watch?v=iYOXiwgt-3o
+
 ## Creating Splunk Reports ##
 
 Download your dataset (currently from slack).
