@@ -1,6 +1,6 @@
 # 805XpertsProjectRepo
 
-#Splunk Setup Instructions
+## Splunk Setup Instructions ##
 
 Splunk Tutorial: Getting Started Using Splunk | Splunk
 https://www.splunk.com/en_us/blog/learn/splunk-tutorials.html
