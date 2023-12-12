@@ -23,7 +23,11 @@ https://hub.docker.com/r/splunk/splunk/
 ## Creating Splunk Reports ##
 
 Run Splunk Enterprise locally.
+
 Navigate to "Add Data" and upload your selected dataset.
+
 Navigate to "Search & Reporting".
+
 Navigate to "Reports".
+
 Begin writing SPL queries. Example on dataset 1: source=<source> host=<host> | stats count by result.uri
