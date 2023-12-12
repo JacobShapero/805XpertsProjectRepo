@@ -1,0 +1,51 @@
+All SPL queries should be preceded by a source location and a host. For my local usage of Splunk these were:
+
+source="C:\\Users\\jwsha\\Desktop\\dataset-1.json\\*" host="DESKTOP-NTLJAJL"
+
+Task: Identify different types of uri found in this dataset.
+SPL: | stats values(result.uri) as unique_uris
+
+Task: Count number of times each uri has been called in this dataset.
+SPL: | stats count by result.uri
+
+Task: Identify different kinds of applicationName.
+SPL: | stats values(result.applicationName) as unique_applicationNames
+
+Task: Identify total number of unique devices.
+SPL: | stats dc(result.bodyId) as total_unique_devices
+
+Task: Identify total number of unique contents.
+SPL: | rex field=result.payload "contentId=(?<contentId>\d+)"
+| stats dc(contentId) as total_unique_contents
+
+Task: Identify top (10) devices with most number of activity.
+SPL: | stats sum(result.totalRecordingCounts) as totalRecordings by result.bodyId
+| sort -totalRecordings
+| head 10
+
+Task: Identify patterns in time period of a day OR days in a week, where these devices are most active.
+SPL: [ search source="C:\\Users\\jwsha\\Desktop\\dataset-1.json\\*" host="DESKTOP-NTLJAJL" 
+  | stats count by result.bodyId
+  | sort -count
+  | head 10
+  | fields result.bodyId
+]
+| eval hourOfDay=strftime(_time, "%H"), dayOfWeek=strftime(_time, "%A")
+| stats count by result.bodyId, hourOfDay, dayOfWeek
+| sort -count
+
+Task: Identify top devices with most number of npvrOfferCaptureSearch.
+SPL: result.uri="/npvrOfferCaptureSearch"
+| stats count by result.bodyId
+| sort -count
+| head 10
+
+Task: Identify most expensive apis in terms of duration durationNS.
+SPL: | stats sum(result.durationNS) as totalDuration by result.uri
+| sort -totalDuration
+| head 10
+
+Task: Identify top devices based in recording counts.
+SPL: | stats sum(result.totalRecordingCounts) as totalRecordings by result.bodyId
+| sort -totalRecordings
+| head 10
