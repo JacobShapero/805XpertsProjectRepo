@@ -32,7 +32,8 @@ The AWS EC2 instance needs to be online to open our shared Splunk. If you have t
 - Click "EC2", then Instances.
 - You should see one instance. If you do not, make sure your time zone is correct and you are logged in with the correct credentials.
 - Click the checkbox on the far left for that instance, then instance state, then "Start Instance".
-- It will take a second to boot up, but once it does feel free to move on. 
+- It will take a second to boot up, but once it does feel free to keep going. 
+
 Now, navigate to http://54.183.22.251:8000/ and log in using your credentials. 
 
 ## Creating Splunk Reports ##
