@@ -49,3 +49,6 @@ Navigate to "Search & Reporting".
 Navigate to "Reports".
 
 Begin writing SPL queries. Example on dataset 1: source=<source> host=<host> | stats count by result.uri
+
+## Tech Spec Link ##
+https://docs.google.com/document/d/1EK1d-lPoFezzQ1_GSRcZqOXp03GRWcQNQ7ECX_CgQg8/edit?usp=sharing
